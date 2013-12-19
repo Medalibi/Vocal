@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+  <form-beans >
+    <form-bean name="signinForm" type="com.mp2srt.struts.form.SigninForm" />
+
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards />
+  <action-mappings >
+    <action
+      attribute="signinForm"
+      input="/index.jsp"
+      name="signinForm"
+      path="/signin"
+      scope="request"
+      type="com.mp2srt.struts.action.SigninAction"
+      cancellable="true">
+      <forward
+        name="super"
+        path="/superviser.jsp"
+        redirect="true" />
+      <forward
+        name="admin"
+        path="/adminappjsa.jsp"
+        redirect="true" />
+      <forward
+        name="wrong"
+        path="/index.jsp"
+        redirect="true" />
+      <forward
+        name="user"
+        path="/usersend.jsp"
+        redirect="true" />
+    </action>
+
+  </action-mappings>
+
+
+  <message-resources parameter="com.mp2srt.struts.ApplicationResources" />
+</struts-config>
+
