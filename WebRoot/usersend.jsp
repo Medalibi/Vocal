@@ -53,9 +53,7 @@
 								<p>&nbsp;</p>
 								<div class="entry">
 								  <ul>
-								    <li><strong>Welcome this is the list of the mail you have send</strong>          
-
-								    </li>
+								    <li><strong>Welcome this is the list of the mail you have send</strong></li>
 							      </ul>
 								  <blockquote>
                                     <p>
@@ -85,14 +83,14 @@
 								<li>
 									<h2>Welcome</h2>
 									<div id="login" >
-										<html:form action="signin" method="post" focus="login">
+										<html:form action="logout" method="post">
 									<div>
 											
-											<p>Mr.:<br />
-											Your mail:<br />
+											<p> <font color="white" size=3 > <b><bean:write name="name" ignore="true" /></b> </font><br />
+											Your mail: <b><bean:write name="mail" ignore="true" /></b> <br />
 											Sheck out you old mail.</p>
 											<p>
-											  <input type="submit" id="logout" value="Log Out" />
+											  <input type="submit" id="logout" value="Logout" />
 											</p>
 												
 									</div>

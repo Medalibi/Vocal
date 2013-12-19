@@ -5,9 +5,12 @@
 package com.mp2srt.struts.form;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+
 
 /** 
  * MyEclipse Struts
@@ -39,8 +42,21 @@ public class SigninForm extends ActionForm {
 	 */
 	public ActionErrors validate(ActionMapping mapping,
 			HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		return null;
+ActionErrors errors =new  ActionErrors();
+		
+		if (login.length()<3 && login.length()<30 )
+		{
+			errors.add("loginError", new ActionMessage("login.error"));	
+		}
+		
+		
+		if (password.length()<3 && password.length()<30 )
+		{
+			errors.add("passwordError", new ActionMessage("password.error"));	
+		}
+		
+		
+		return errors;
 	}
 
 	/** 

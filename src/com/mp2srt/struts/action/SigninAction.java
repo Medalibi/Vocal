@@ -42,6 +42,7 @@ public class SigninAction extends Action {
 	 * @param response
 	 * @return ActionForward
 	 */
+	
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
 		SigninForm signinForm = (SigninForm) form;// TODO Auto-generated method stub
@@ -55,7 +56,9 @@ public class SigninAction extends Action {
 		CompteDAO ud = new CompteDAO();
 		Compte us = ud.findById(login);
 		Logger log = Logger.getLogger(TextAction.class);
-		request.getSession().setAttribute("invalid_name", " ");
+		request.getSession().setAttribute("invalid", " ");
+		request.getSession().setAttribute("mail", " ");
+		request.getSession().setAttribute("name", " ");
 		if(us != null && us.getPassword().equals(password))
 		{
 			
@@ -66,13 +69,14 @@ public class SigninAction extends Action {
 				output ="user";
 				
 				request.getSession().setAttribute("name", us.getTitre() + " " + us.getNom() + " " + us.getPrenom() +  ".");
-				
+				request.getSession().setAttribute("mail", " " + us.getAdresseMail());
 					
 			}
 			else if (us.getPrivilege().getStatus().equals("admin"))
 			{
 				log.info("The Adminisrator" + login + " has connected.");
 				request.getSession().setAttribute("name", us.getTitre() + " " + us.getNom() + " " + us.getPrenom() +  ".");
+				
 				output ="admin";
 			}
 			else if (us.getPrivilege().getStatus().equals("super"))

@@ -4,11 +4,13 @@
 <struts-config>
   <form-beans >
     <form-bean name="signinForm" type="com.mp2srt.struts.form.SigninForm" />
+    <form-bean name="logoutForm" type="com.mp2srt.struts.form.LogoutForm" />
 
   </form-beans>
 
   <global-exceptions />
-  <global-forwards />
+  
+
   <action-mappings >
     <action
       attribute="signinForm"
@@ -35,6 +37,20 @@
         path="/usersend.jsp"
         redirect="true" />
     </action>
+    <action
+      attribute="logoutForm"
+      input="/usersend.jsp"
+      name="logoutForm"
+      path="/logout"
+      scope="request"
+      type="com.mp2srt.struts.action.LogoutAction"
+      cancellable="true">
+      <forward
+        name="logout"
+        path="/index.jsp"
+        redirect="true" />
+    </action>
+    
 
   </action-mappings>
 

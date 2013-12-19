@@ -53,7 +53,7 @@
 								<p>&nbsp;</p>
 								<div class="entry">
 								  <ul>
-								    <li><strong>This is the list of the application users</strong>             
+								    <li><strong>This is the list of the application users</strong> 
 
 								    </li>
 							      </ul>
@@ -86,14 +86,13 @@
 									<h2>Welcome Administrator</h2>
 									<div id="login" >
 										
-									<html:form action="signin" method="post" focus="login">
+									<html:form action="logout" method="post">
 									<div>
 											<p>From this page you manage the users account of this application.</p>
-											<p>Mr.:<br />
-											Your mail:<br />
-											Sheck out you old mail.</p>
+											<p>Mr.: <font color="white" size=3 > <b><bean:write name="name" ignore="true" /></b> </font><br />
+											</p>
 											<p>
-											  <input type="submit" id="logout" value="Log Out" />
+											  <input type="submit" id="logout" value="Logout" />
 											</p>
 												
 									</div>

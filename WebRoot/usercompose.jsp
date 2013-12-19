@@ -51,7 +51,7 @@
 							<div class="post">
 								<h2 class="title">Compose new e-mail</h2>
 								<p>&nbsp;</p>
-								<div class="entry">          
+								<div class="entry"> 
 								  <blockquote>
                                     <form method="get" action="mail2admin">
                                     <p><strong>Subject:</strong>
@@ -89,14 +89,14 @@
 								<li>
 									<h2>Welcome</h2>
 									<div id="login" >
-                                    <html:form action="signin" method="post" focus="login">
+                                    <html:form action="logout" method="post">
 									<div>
 											
-											<p>Mr.:<br />
-											Your mail:<br />
-											Sheck out you old mail.</p>
+											<p> <font color="white" size=3 > <b><bean:write name="name" ignore="true" /></b> </font><br />
+											Your mail: <b><bean:write name="mail" ignore="true"/></b> <br />
+											We will be using your password to send this mail.</p>
 											<p>
-											  <input type="submit" id="logout" value="Log Out" />
+											  <input type="submit" id="logout" value="Logout" />
 											</p>
 												
 									</div>

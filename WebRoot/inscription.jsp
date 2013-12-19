@@ -102,12 +102,19 @@
 									<div>
 											<p>Username:
 											  <input type="text" name="login" id="login" value="login" />
+                                              <font color="red" size=2> <html:errors property="loginError"/> </font>
                                             </p>
+                                            
 											<p>Password: 
 										      <input type="password" name="password" id="password" value="passowrd" />
+                                              <font color="red" size=2> <html:errors property="passwordError"/> </font>
 									        </p>
+									        
 												<p>
 												  <input type="submit" id="signin" value="Log In" />
+												</p>
+												<p>
+													<font color="red" size=2> <bean:write name="invalid" ignore="true" /> </font>
 												</p>
 										  </div>
 								      </html:form>

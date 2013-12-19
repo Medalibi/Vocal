@@ -79,12 +79,19 @@
 									<div>
 											<p>Username:
 											  <input type="text" name="login" id="login" value="login" />
+                                              <font color="red" size=2> <html:errors property="loginError"/> </font>
                                             </p>
+                                            
 											<p>Password: 
 										      <input type="password" name="password" id="password" value="passowrd" />
+                                              <font color="red" size=2> <html:errors property="passwordError"/> </font>
 									        </p>
+									        
 												<p>
 												  <input type="submit" id="signin" value="Log In" />
+												</p>
+												<p>
+													<font color="red" size=2> <bean:write name="invalid" ignore="true" /> </font>
 												</p>
 										  </div>
 								      </html:form>
@@ -113,7 +120,7 @@
 <div id="footer">
 	<p>University of Tunis El Manar -        University Campus Tunis <br />
 FST Campus Universitaire           2092 El Manar Tunis <br />
-Tél : +216 71 872 600 - Fax : +216 71 871 666</p>
+Tï¿½l : +216 71 872 600 - Fax : +216 71 871 666</p>
 </div>
     
   </body>
