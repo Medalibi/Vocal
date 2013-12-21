@@ -55,10 +55,15 @@ public class SigninAction extends Action {
 		
 		CompteDAO ud = new CompteDAO();
 		Compte us = ud.findById(login);
+		
+		
+		
 		Logger log = Logger.getLogger(TextAction.class);
 		request.getSession().setAttribute("invalid", " ");
 		request.getSession().setAttribute("mail", " ");
 		request.getSession().setAttribute("name", " ");
+		
+		
 		if(us != null && us.getPassword().equals(password))
 		{
 			
