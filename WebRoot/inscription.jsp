@@ -55,28 +55,31 @@
 								<div class="entry">
 								  <ul>
 								    <li>
-								      <p><strong>For Inscription you need to contact the administrator to add  you to the data base. Please fill the cases and specify your condition and the  need of using this application:  </strong>             </p>
+								      <p><strong>For Inscription you need to contact the administrator to add  you to the data base. Please fill the cases and specify your condition and the  need of using this application:</strong></p>
 
 								    </li>
 							      </ul>
 								  <blockquote>
-                                  <form method="get" action="mail2admin">
+                                  
+                                  <html:form method="get" action="mail2admin">
                                     <p><strong>Full Name:</strong>
                                     <input name="name" type="text" id="name" value="Full Name" size="30" /></p>
 								    <p><strong>E-mail:</strong>
                                     <input name="email" type="text" id="email" value="example@gmail.com" size="40" /></p>
 								    <p><strong>Organisation:</strong>
                                     <input name="organ" type="text" id="organ" value="Organisation" size="50" /></p>
-								    <p><strong>Condution:</strong>
-                                      <textarea name="cond" cols="60" rows="4" id="Condution">Condution.</textarea>
+								    <p><strong>Condution:</strong></p>
+                                    <p>
+                                     <textarea name="cond" cols="57" rows="4" id="Condution"></textarea>
 								    </p>
-								    <p><strong>Note:</strong>
-                                      <textarea name="note" cols="60" rows="10" id="note" dir="ltr" lang="en">Example.</textarea>
+								    <p><strong>Note:</strong></p>
+                                    <p>
+                                    <textarea name="note" cols="57" rows="10" id="note" dir="ltr" lang="en"></textarea>
 								    </p>
                                     <p>
-												  <input name="Send" type="submit" id="send" value="Send" />
-												</p>
-                                   </form>
+									<input name="Send Mail" type="submit" id="send" value="Send Mail" />
+									</p>
+                                   </html:form>
 							      </blockquote>
 <p>&nbsp;</p>
 <p>&nbsp;</p>

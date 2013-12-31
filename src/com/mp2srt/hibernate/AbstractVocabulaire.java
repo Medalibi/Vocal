@@ -55,5 +55,10 @@ public abstract class AbstractVocabulaire implements java.io.Serializable {
 	public void setNomVocab(String nomVocab) {
 		this.nomVocab = nomVocab;
 	}
+	
+	@Override
+    public String toString() {
+        return nomVocab;
+    }
 
 }

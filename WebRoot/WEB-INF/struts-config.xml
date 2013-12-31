@@ -5,6 +5,8 @@
   <form-beans >
     <form-bean name="signinForm" type="com.mp2srt.struts.form.SigninForm" />
     <form-bean name="logoutForm" type="com.mp2srt.struts.form.LogoutForm" />
+    <form-bean name="adminmailerForm" type="com.mp2srt.struts.form.AdminmailerForm" />
+    <form-bean name="readerForm" type="com.mp2srt.struts.form.ReaderForm" />
 
   </form-beans>
 
@@ -50,6 +52,32 @@
         path="/index.jsp"
         redirect="true" />
     </action>
+    
+    
+    <action
+      attribute="adminmailerForm"
+      input="/inscription.jsp"
+      name="adminmailerForm"
+      path="/adminmailer"
+      scope="request"
+      type="com.mp2srt.struts.action.AdminmailerAction"
+      cancellable="true">
+      <forward
+        name="go"
+        path="/inscription.jsp"
+        redirect="true" />
+    </action>
+    <action
+      attribute="readerForm"
+      input="/usersend.jsp"
+      name="readerForm"
+      path="/reader"
+      scope="request"
+      type="com.mp2srt.struts.action.ReaderAction"
+      cancellable="true">
+      <forward name="go" path="/usersend.jsp" />
+    </action>
+    
     
 
   </action-mappings>

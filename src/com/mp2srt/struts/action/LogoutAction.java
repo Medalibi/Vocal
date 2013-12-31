@@ -6,10 +6,15 @@ package com.mp2srt.struts.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.text.TextAction;
+
+import org.apache.log4j.Logger;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+
+import com.mp2srt.beans.TTSReader;
 import com.mp2srt.struts.form.LogoutForm;
 
 /** 
@@ -36,6 +41,13 @@ public class LogoutAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
 		LogoutForm logoutForm = (LogoutForm) form;// TODO Auto-generated method stub
+		
+		Logger log = Logger.getLogger(TextAction.class);
+		TTSReader tts = new TTSReader();
+		
+		log.trace("User loged out.");
+		tts.Spell("Good bye. We hope that you have enjoyed the use of our application.");
+		
 		return mapping.findForward("logout");
 	}
 }

@@ -12,7 +12,7 @@
 	</appender>
 	
 	<appender name="htmlFile" class="org.apache.log4j.RollingFileAppender">
-		<param name="file" value="D:/struts log/strustlogfile.html" />
+		<param name="file" value="D:/strutslog/strustlogfile.html" />
 		<param name="maxFileSize" value="10MB" />
 		<param name="maxBackupIndex" value="5" />
 		

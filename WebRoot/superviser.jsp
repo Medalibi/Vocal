@@ -55,16 +55,31 @@
 								  <ul>
 								    <li><strong>This is the list of all the user vocabilairy</strong></li>
 							      </ul>
-								  <blockquote>
-                                    <p>
-                                      <textarea name="list" id="list">nothing</textarea>
-								    </p>
-                                    <p>
-												  <input name="Send" type="submit" id="send" value="Send" />
-												</p>
+								  <html:form action="logout" method="post">
+							      
+							       <blockquote>
+								    <table border="1" align="left" cellpadding="2" cellspacing="2" class="active" style="border:1px solid black;border-collapse: collapse;">
+								      
+								      <col width="80px" />
+								      <col width="40px" />
+								      <col width="40px" />
+								      <tr>
+								      
+								      <th>Vocabulary</th>
+								      <th>User</th>
+								      <th>Edit</th>
+								      </tr>
+								      <logic:iterate name="listvocab" id="listMsgId">
+								      <tr class="alternate-row" style="border:1px solid black;" >
+								        
+								        <td style="border:1px solid black;"><strong><bean:write name="listMsgId" property="nomVocab"/></strong></td> 
+								        <td style="border:1px solid black;"><bean:write name="listMsgId" property="compte"/></td> 
+								        <td style="border:1px solid black;"><input  type="submit" id="idedit" value=<bean:write name="listMsgId" property="idVocab"/>/></td> 
+								      </tr> 
+								      </logic:iterate>
+							        </table>
 							      </blockquote>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+							      </html:form>
                               </div>
 							</div>
 							<div class="post">
@@ -86,7 +101,7 @@
 										<html:form action="logout" method="post">
 									<div>
 											
-											<p>Mr.: <font color="white" size=3 > <b><bean:write name="name" ignore="true" /></b> </font><br />
+											<p><font color="white" size=3 > <b><bean:write name="name" ignore="true" /></b> </font><br />
 											
 											</p>
 											<p>

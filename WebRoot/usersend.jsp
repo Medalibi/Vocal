@@ -56,12 +56,36 @@
 								    <li><strong>Welcome this is the list of the mail you have send</strong></li>
 							      </ul>
 								  <blockquote>
-                                    <p>
-                                      <textarea name="list" id="list">nothing</textarea>
-								    </p>
-                                    <p>
-												  <input name="Send" type="submit" id="send" value="Send" />
-												</p>
+                                    <html:form action="reader" method="post" focus="idmail">
+							      
+							       <blockquote>
+								    <table border="1" align="left" cellpadding="2" cellspacing="2" class="active" style="border:1px solid black;border-collapse: collapse;">
+								      <col width="10px" />
+								      <col width="80px" />
+								      <col width="40px" />
+								      <col width="100px" />
+								      
+								      <tr>
+								      <th>Read</th>
+								      <th>Subject</th>
+								      <th>Send Address</th>
+								      <th>Date of sent</th>
+								      
+								      </tr>
+								      
+								      <logic:iterate name="listmail" id="listmailId">
+								      <tr class="alternate-row" style="border:1px solid black;" >
+								      <td style="border:1px solid black;"><input type="submit" id="idmail" name="idmail" value="<bean:write name="listmailId" property="idEmail"/>"/></td> 
+							          <td style="border:1px solid black;"><bean:write name="listmailId" property="sujet"/></td> 
+								        <td style="border:1px solid black;"><bean:write name="listmailId" property="sendAdresse"/></td> 
+								        <td style="border:1px solid black;"><bean:write name="listmailId" property="dateDEnvoi"/></td> 
+								       	</tr> 
+							          </logic:iterate>
+							        </table>
+							        
+							      </blockquote>
+							      
+							      </html:form>
 							      </blockquote>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -99,8 +123,10 @@
 									<div style="clear: both;">&nbsp;</div>
 								</li>
 								<li>
-									<h2><img src="images/vocal-icon.png" alt="" width="180" height="170" /></h2>
-</li>
+								<img src="images/vocal-icon.png" alt="" width="180" height="170" /> 
+									
+								</li>
+								
 								<li>
 									<h2>&nbsp;</h2>
 								</li>

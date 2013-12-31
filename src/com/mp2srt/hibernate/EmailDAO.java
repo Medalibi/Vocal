@@ -25,6 +25,7 @@ public class EmailDAO extends BaseHibernateDAO {
 	public static final String SUJET = "sujet";
 	public static final String SEND_ADRESSE = "sendAdresse";
 	public static final String CONTENU = "contenu";
+	public static final String COMPTE = "compte";
 
 	public void save(Email transientInstance) {
 		log.debug("saving Email instance");
@@ -90,6 +91,10 @@ public class EmailDAO extends BaseHibernateDAO {
 		}
 	}
 
+	public List findByCompte(Object sujet) {
+		return findByProperty(COMPTE, sujet);
+	}
+	
 	public List findBySujet(Object sujet) {
 		return findByProperty(SUJET, sujet);
 	}

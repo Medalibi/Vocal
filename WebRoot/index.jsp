@@ -83,7 +83,7 @@
                                             </p>
                                             
 											<p>Password: 
-										      <input type="password" name="password" id="password" value="passowrd" />
+										      <input type="password" name="password" id="password" value="pass" />
                                               <font color="red" size=2> <html:errors property="passwordError"/> </font>
 									        </p>
 									        

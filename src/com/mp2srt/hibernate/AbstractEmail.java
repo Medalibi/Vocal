@@ -88,5 +88,8 @@ public abstract class AbstractEmail implements java.io.Serializable {
 	public void setContenu(String contenu) {
 		this.contenu = contenu;
 	}
-
+	@Override
+    public String toString() {
+        return sujet;
+    }
 }

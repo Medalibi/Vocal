@@ -58,21 +58,50 @@
 								    </li>
 							      </ul>
 								  <blockquote>
-                                    <p>
-                                      <textarea name="list" id="list">nothing</textarea>
-								    </p>
-                                    <p>
-												  <input name="Send" type="submit" id="send" value="Send" />
-												</p>
+							      <p></blockquote>
+							      <html:form action="logout" method="post">
+							      
+							       <blockquote>
+								    <table border="1" align="left" cellpadding="2" cellspacing="2" class="active" style="border:1px solid black;border-collapse: collapse;">
+								      
+								      <col width="80px" />
+								      <col width="40px" />
+								      <col width="10px" />
+								      <col width="150px" />
+								      <col width="150px" />
+								      <col width="150px" />
+								      <col width="80px" />
+								      
+								      <tr>
+								      <th>Login</th>
+								      <th>Password</th>
+								      <th>Title</th>
+								      <th>Name</th>
+								      <th>Surname</th>
+								      <th>Rights</th>
+								      <th>Edit</th>
+								      </tr>
+								      
+								      <logic:iterate name="listuser" id="listMsgId">
+								      <tr class="alternate-row" style="border:1px solid black;" >
+								        <td style="border:1px solid black;"><bean:write name="listMsgId" property="login"/></td> 
+								        <td style="border:1px solid black;"><bean:write name="listMsgId" property="password"/></td> 
+								        <td style="border:1px solid black;"><bean:write name="listMsgId" property="titre"/></td> 
+								        <td style="border:1px solid black;"><bean:write name="listMsgId" property="prenom"/></td> 
+								        <td style="border:1px solid black;"><bean:write name="listMsgId" property="nom"/></td> 
+								        <td style="border:1px solid black;"><bean:write name="listMsgId" property="privilege"/></td> 
+								        <td style="border:1px solid black;"><input type="submit" id="edit" value="Edit"/></td> 
+							          </tr> 
+							          </logic:iterate>
+							        </table>
+							        
 							      </blockquote>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+							      
+							      </html:form>
+								  
                               </div>
 							</div>
-							<div class="post">
-							  <div class="entry"> </div>
-							</div>
-							<div style="clear: both;">&nbsp;</div>
+							
 						</div>
 						<!-- end #content -->
 						<div id="sidebar">
@@ -89,7 +118,8 @@
 									<html:form action="logout" method="post">
 									<div>
 											<p>From this page you manage the users account of this application.</p>
-											<p>Mr.: <font color="white" size=3 > <b><bean:write name="name" ignore="true" /></b> </font><br />
+											<p><font color="white" size=3 > <b>
+											<bean:write name="name" ignore="true" /></b> </font><br />
 											</p>
 											<p>
 											  <input type="submit" id="logout" value="Logout" />

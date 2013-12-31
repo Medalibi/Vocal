@@ -4,6 +4,9 @@
  */
 package com.mp2srt.struts.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.text.TextAction;
@@ -14,8 +17,13 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+
 import com.mp2srt.hibernate.Compte;
 import com.mp2srt.hibernate.CompteDAO;
+import com.mp2srt.hibernate.Email;
+import com.mp2srt.hibernate.EmailDAO;
+import com.mp2srt.hibernate.Vocabulaire;
+import com.mp2srt.hibernate.VocabulaireDAO;
 import com.mp2srt.struts.form.SigninForm;
 
 /** 
@@ -53,10 +61,14 @@ public class SigninAction extends Action {
 		String password = signinForm.getPassword();
 		
 		
-		CompteDAO ud = new CompteDAO();
-		Compte us = ud.findById(login);
+		CompteDAO codao = new CompteDAO();
+		Compte comp = codao.findById(login);
+		VocabulaireDAO vocdao = new VocabulaireDAO();
+		EmailDAO maidao = new EmailDAO();
+		Email mail = new Email();
 		
-		
+		TextToSpeech tts = new TextToSpeech();
+		Reader Read = new Reader();
 		
 		Logger log = Logger.getLogger(TextAction.class);
 		request.getSession().setAttribute("invalid", " ");
@@ -64,37 +76,70 @@ public class SigninAction extends Action {
 		request.getSession().setAttribute("name", " ");
 		
 		
-		if(us != null && us.getPassword().equals(password))
+		if(comp != null && comp.getPassword().equals(password))
 		{
 			
-			if (us.getPrivilege().getStatus().equals("user"))
+			if (comp.getPrivilege().getStatus().equals("user"))
 			{
 				
-				log.info("The user" + login + " has connected.");
+				log.info("The user " + login + " has connected.");
 				output ="user";
 				
-				request.getSession().setAttribute("name", us.getTitre() + " " + us.getNom() + " " + us.getPrenom() +  ".");
-				request.getSession().setAttribute("mail", " " + us.getAdresseMail());
+				request.getSession().setAttribute("name", comp.getTitre() + " " + comp.getNom() + " " + comp.getPrenom() +  ".");
+				request.getSession().setAttribute("mail", " " + comp.getAdresseMail());
+				
+				tts.playSynth("Welcome " + comp.getTitre() + " " + comp.getNom() + " " + comp.getPrenom() + ". On this page you have the list of your old mails");
+				
+				List<Email> listmail = new ArrayList<Email>();
+				List<Email> listmailuser = new ArrayList<Email>();
+				listmail = maidao.findAll();
+				
+				for (long i = 1; i<=listmail.size(); i++)
+				{
+					mail = maidao.findById(i);
+					//mail.getCompte().toString()
+					if (mail.getCompte().toString().equals(comp.toString()))
+					{
+						listmailuser.add(mail);
+					}
+				}
+				request.getSession().setAttribute("listmail", listmailuser);
+				 
+			    
 					
 			}
-			else if (us.getPrivilege().getStatus().equals("admin"))
+			else if (comp.getPrivilege().getStatus().equals("admin"))
 			{
-				log.info("The Adminisrator" + login + " has connected.");
-				request.getSession().setAttribute("name", us.getTitre() + " " + us.getNom() + " " + us.getPrenom() +  ".");
+				log.info("The Adminisrator " + login + " has connected.");
+				request.getSession().setAttribute("name", comp.getTitre() + " " + comp.getNom() + " " + comp.getPrenom() +  ".");
+				
+				tts.playSynth("Welcome " + comp.getNom() + " " + comp.getPrenom() +  ". Please feel free to use the user list.");
+				
+				List<Compte> listuser = new ArrayList<Compte>(); 
+				listuser = codao.findAll(); 
+				request.getSession().setAttribute("listuser",listuser);
 				
 				output ="admin";
+				
 			}
-			else if (us.getPrivilege().getStatus().equals("super"))
+			else if (comp.getPrivilege().getStatus().equals("super"))
 			{
 				
-				log.info("The Superviser" + login + " has connected.");
-				request.getSession().setAttribute("name", us.getTitre() + " " + us.getNom() + " " + us.getPrenom() +  ".");
+				log.info("The Superviser " + login + " has connected.");
+				request.getSession().setAttribute("name", comp.getTitre() + " " + comp.getNom() + " " + comp.getPrenom() +  ".");
+				
+				tts.playSynth("Welcome "  + comp.getNom() + " " + comp.getPrenom() +  ". There you have all the vocabilary list.");
+				
+				List<Vocabulaire> listvocab = new ArrayList<Vocabulaire>(); 
+				listvocab = vocdao.findAll(); 
+				request.getSession().setAttribute("listvocab",listvocab);
+				
 				output ="super";
 			}
 			else
 			{
 				log.error(login + " failed an attempts to login.");
-				request.getSession().setAttribute("invalid", us.getTitre() + " " + us.getNom() + " " + us.getPrenom() +  " you wrote a wrong password.");
+				request.getSession().setAttribute("invalid", comp.getTitre() + " " + comp.getNom() + " " + comp.getPrenom() +  " you wrote a wrong password.");
 				output = "wrong";
 				
 			}
