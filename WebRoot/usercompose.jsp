@@ -47,36 +47,30 @@
 				</div>
 				<!-- end #menu -->
 
-						<div id="content">
-							<div class="post">
-								<h2 class="title">Compose new e-mail</h2>
-								<p>&nbsp;</p>
-								<div class="entry"> 
-								  <blockquote>
-                                    <form method="get" action="mail2admin">
-                                    <p><strong>Subject:</strong>
-                                      <br />
-                                      <input name="name" type="text" id="name" value="Subject" size="30" /></p>
-								    <p><strong>To:<br />
-								    </strong>
-								      <input name="email" type="text" id="email" value="example@gmail.com" size="40" />
-								      </p>
-								    <p><strong>Mail:<br />
-							        <textarea name="note" cols="60" rows="10" id="note" dir="ltr" lang="en"></textarea>
-				                    </strong></p>
-                                    <p>
-												  <input name="Send" type="submit" id="send" value="Send" />
-									  </p>
-                                   </form>
-							      </blockquote>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+				<div id="content">
+				<div class="post">
+				<h2 class="title">Compose new e-mail</h2>
+				<p>&nbsp;</p>
+				<div class="entry"> 
+					<blockquote>
+                      <html:form action="mailsender" method="post" focus="email">
+                       	<p><strong>To:</strong>
+					   	<input type="text" name="email" id="email" value="example@mail.com" size="60" /></p>
+                        <p><strong>Subject:</strong>
+                       	<input type="text" name="subject" id="subject" value="Subject" size="54" /></p>
+						<p><strong>Mail:</strong><br />
+						<textarea name="note" cols="61" rows="15" id="note" dir="ltr" lang="en"></textarea></p>
+                        <input type="hidden" id="login" value="<bean:write name="login" ignore="true"/>"/>
+                        <p><input type="submit" id="send" name="Send" value="Send Mail" /></p>
+                       </html:form>
+					</blockquote>
+
                               </div>
 							</div>
 							<div class="post">
-							  <div class="entry"> </div>
+							  
 							</div>
-							<div style="clear: both;">&nbsp;</div>
+							
 						</div>
 						<!-- end #content -->
 						<div id="sidebar">
@@ -96,7 +90,7 @@
 											Your mail: <b><bean:write name="mail" ignore="true"/></b> <br />
 											We will be using your password to send this mail.</p>
 											<p>
-											  <input type="submit" id="logout" value="Logout" />
+                                            <input type="submit" id="logout" value="Logout" />
 											</p>
 												
 									</div>
@@ -126,7 +120,7 @@
 <div id="footer">
 	<p>University of Tunis El Manar -        University Campus Tunis	<br />
     FST Campus Universitaire           2092 El Manar Tunis <br />
-    Tél : +216 71 872 600 - Fax : +216 71 871 666</p>
+    Tel : +216 71 872 600 - Fax : +216 71 871 666</p>
 </div>
 </body>
 </html>

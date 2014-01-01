@@ -87,6 +87,7 @@ public class SigninAction extends Action {
 				
 				request.getSession().setAttribute("name", comp.getTitre() + " " + comp.getNom() + " " + comp.getPrenom() +  ".");
 				request.getSession().setAttribute("mail", " " + comp.getAdresseMail());
+				request.getSession().setAttribute("login", login);
 				
 				tts.playSynth("Welcome " + comp.getTitre() + " " + comp.getNom() + " " + comp.getPrenom() + ". On this page you have the list of your old mails");
 				
@@ -113,7 +114,7 @@ public class SigninAction extends Action {
 				log.info("The Adminisrator " + login + " has connected.");
 				request.getSession().setAttribute("name", comp.getTitre() + " " + comp.getNom() + " " + comp.getPrenom() +  ".");
 				
-				tts.playSynth("Welcome " + comp.getNom() + " " + comp.getPrenom() +  ". Please feel free to use the user list.");
+				tts.playSynth("Welcome " + comp.getTitre() +comp.getNom() + " " + comp.getPrenom() +  ". This is the user list");
 				
 				List<Compte> listuser = new ArrayList<Compte>(); 
 				listuser = codao.findAll(); 
@@ -128,7 +129,7 @@ public class SigninAction extends Action {
 				log.info("The Superviser " + login + " has connected.");
 				request.getSession().setAttribute("name", comp.getTitre() + " " + comp.getNom() + " " + comp.getPrenom() +  ".");
 				
-				tts.playSynth("Welcome "  + comp.getNom() + " " + comp.getPrenom() +  ". There you have all the vocabilary list.");
+				tts.playSynth("Welcome " + comp.getTitre() + comp.getNom() + " " + comp.getPrenom() +  ". There you have all the vocabilary list.");
 				
 				List<Vocabulaire> listvocab = new ArrayList<Vocabulaire>(); 
 				listvocab = vocdao.findAll(); 

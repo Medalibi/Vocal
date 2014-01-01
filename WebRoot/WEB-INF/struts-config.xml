@@ -7,6 +7,7 @@
     <form-bean name="logoutForm" type="com.mp2srt.struts.form.LogoutForm" />
     <form-bean name="adminmailerForm" type="com.mp2srt.struts.form.AdminmailerForm" />
     <form-bean name="readerForm" type="com.mp2srt.struts.form.ReaderForm" />
+    <form-bean name="mailsenderForm" type="com.mp2srt.struts.form.MailsenderForm" />
 
   </form-beans>
 
@@ -77,6 +78,20 @@
       cancellable="true">
       <forward name="go" path="/usersend.jsp" />
     </action>
+    <action
+      attribute="mailsenderForm"
+      input="/usercompose.jsp"
+      name="mailsenderForm"
+      path="/mailsender"
+      scope="request"
+      type="com.mp2srt.struts.action.MailsenderAction"
+      cancellable="true">
+      <forward
+        name="done"
+        path="/usercompose.jsp"
+        redirect="true" />
+    </action>
+    
     
     
 

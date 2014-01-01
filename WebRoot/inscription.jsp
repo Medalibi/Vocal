@@ -145,7 +145,7 @@
 <div id="footer">
 	<p>University of Tunis El Manar -        University Campus Tunis	<br />
     FST Campus Universitaire           2092 El Manar Tunis <br />
-    Tél : +216 71 872 600 - Fax : +216 71 871 666</p>
+    Tel : +216 71 872 600 - Fax : +216 71 871 666</p>
 </div>
 </body>
 </html>

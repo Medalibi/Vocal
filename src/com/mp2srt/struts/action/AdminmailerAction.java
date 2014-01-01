@@ -56,12 +56,12 @@ public class AdminmailerAction extends Action {
 		//String mailfrom= email;
 		//String mailto= "projectmpsrt@gmail.com";
 		String subject= "From " + name + " of " + organisation + " with the condution of " + condution;
-		String text= "note";
+		//String text= "note";
 		
-		mail.MailSender(username, password, email, username, subject, text);
+		mail.MailSender(username, password, email, username, subject, note);
 		tts.playSynth("The administrator will respond to your request.");
 		
-		log.trace("The person " + name + " From " + organisation + " Send an email to request an account in the application.");
+		log.info("The person " + name + " From " + organisation + " Send an email to request an account in the application.");
 		request.getSession().setAttribute("invalid", "The administrator well received your request.");
 		
 		return mapping.findForward("go");

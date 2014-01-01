@@ -12,7 +12,7 @@ public class TextToSpeech {
 
 		
 	public void playSynth(String words) {//GEN-FIRST:event_playSynthActionPerformed
-        System.out.println("Playing...");
+        System.out.println("Traslating...");
         this.words=words;
 
         new Thread(new PlayMP3Thread()).start();
@@ -34,7 +34,7 @@ public class TextToSpeech {
                 ex.printStackTrace();
             }
 
-            System.out.println("Waiting...");
+            System.out.println("Playing...");
         }
     }
 

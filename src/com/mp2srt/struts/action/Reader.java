@@ -1,31 +1,45 @@
 package com.mp2srt.struts.action;
 
 
-
 import javax.sound.sampled.AudioFileFormat;
-
-
 import com.darkprograms.speech.microphone.Microphone;
 import com.darkprograms.speech.recognizer.GoogleResponse;
 import com.darkprograms.speech.recognizer.Recognizer;
-import com.mp2srt.hibernate.Email;
-import com.mp2srt.hibernate.EmailDAO;
+
 
 public class Reader {
+	
 	
 	public String filename = "sound.wav";
 	public String data = null;
 	
 	
-	public void Listen(long idmail){
+	// public static void main(String args[]) {
+		 
+	 
+		// Reader read = new Reader();
+		// System.out.println(read.Listen("read this, record what i'm saying", "exit the program," +
+		 //		" stop recording, nothing to say, no command to say," +
+		// 		" no command to tell.", 7000));
+		 
+	// }
 	
-	EmailDAO maidao = new EmailDAO();
-	Email mail = new Email();
-	String text = " ";
+	
+	
+	public String Listen(String valide, String stop, int time){
+	
+	long t = 1;
+	//String text = " ";
 	
 	TextToSpeech tts = new TextToSpeech();
-	//String command =null;
-	Recognizer rec = new Recognizer();
+	
+	//VocabulaireDAO vocdao = new VocabulaireDAO();
+
+	//List<Vocabulaire> listvocab = new ArrayList<Vocabulaire>(); 
+	//listvocab = vocdao.findAll(); 
+	
+	
+	//System.out.println(listvocab.get(1).getNomVocab());
 	
 	               //Your Desired FileName
     Microphone mic = new Microphone(AudioFileFormat.Type.WAVE);
@@ -34,20 +48,16 @@ public class Reader {
 	try{
         
   
-			tts.playSynth("Name your action now"); 
+			tts.playSynth("Please, Speak now..."); 
 			//data = null;
 			
 			Thread.sleep(50);
 				mic.open();
 				mic.captureAudioToFile(filename);
-				//int ambientVolume = mic.getAudioVolume();
-				//Thread.sleep(2000);
-				//tts.Spell("beep");
 				
-				//Thread.sleep(50);
-				//int volume = mic.getAudioVolume();
-			
-				Thread.sleep(7000);
+				//tts.Spell("beep");
+				System.out.println("Listening...");		
+				Thread.sleep(time);
 			
 			
 			    //volume = mic.getAudioVolume();
@@ -66,23 +76,26 @@ public class Reader {
         //System.out.println(out.getResponse());
         
 				Thread.sleep(5000);
-		//tts.Spell("You have said "+ data);
-        if (data.trim().equals("read the mail"))
+		//tts.Spell("You have said "+ data);  data.trim().equals(valid)
+        if (valide.contains(data))
         {
-        	mail = maidao.findById(idmail);
-        	System.out.println(text);
-        	text= "The subject is "+ mail.getSujet().trim() + " and it have " + mail.getContenu().trim();
-        	text = text.replaceAll("\n", " ");
-        	text = text.replaceAll(",", " ");
-        	text = text.replaceAll(".", " ");
-        	System.out.println(text);
-        	tts.playSynth(text);
+        	tts.playSynth("The word accepted: " + data);
+        	return data;
+        }
+        else if (stop.contains(data))
+        {
+        	tts.playSynth("recognition stopped!!");
+        	System.out.println("Exiting...");
+        	break;
+        	
         }
         else {
-        	tts.playSynth("I didn't hear you right");
+        	tts.playSynth("Didn't get that.");
+        	Thread.sleep(1000);
         }
         
-        Thread.sleep(5000);
+        
+        
     
 	}
     catch(Exception e){
@@ -91,6 +104,7 @@ public class Reader {
 	
 	
 	}
+	return null;
 	}
 	
 	protected class RecognizeThread implements Runnable {
@@ -100,7 +114,7 @@ public class Reader {
             Recognizer recognizer = new Recognizer();
             TextToSpeech tts = new TextToSpeech();
             try {
-                recognizer.setLanguage("en_US");
+                recognizer.setLanguage(Recognizer.Languages.ENGLISH_US);
                 GoogleResponse googleResponse = recognizer.getRecognizedDataForWave(filename);
                 data= googleResponse.getResponse();
                 //confidence.setText(googleResponse.getConfidence());
