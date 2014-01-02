@@ -8,6 +8,10 @@
     <form-bean name="adminmailerForm" type="com.mp2srt.struts.form.AdminmailerForm" />
     <form-bean name="readerForm" type="com.mp2srt.struts.form.ReaderForm" />
     <form-bean name="mailsenderForm" type="com.mp2srt.struts.form.MailsenderForm" />
+    <form-bean name="managevocabForm" type="com.mp2srt.struts.form.ManagevocabForm" />
+    <form-bean name="manageuserForm" type="com.mp2srt.struts.form.ManageuserForm" />
+    <form-bean name="usermanForm" type="com.mp2srt.struts.form.UsermanForm" />
+    <form-bean name="vocalmanForm" type="com.mp2srt.struts.form.VocalmanForm" />
 
   </form-beans>
 
@@ -91,6 +95,84 @@
         path="/usercompose.jsp"
         redirect="true" />
     </action>
+    <action
+      attribute="managevocabForm"
+      input="/superviser.jsp"
+      name="managevocabForm"
+      path="/managevocab"
+      scope="request"
+      type="com.mp2srt.struts.action.ManagevocabAction"
+      cancellable="true">
+      <forward
+        name="remove"
+        path="/superviser.jsp"
+        redirect="true" />
+      <forward
+        name="addvocab"
+        path="/addvocab.jsp"
+        redirect="true" />
+      <forward
+        name="editvocab"
+        path="/editvocab.jsp"
+        redirect="true" />
+    </action>
+    <action
+      attribute="manageuserForm"
+      input="/adminappjsa.jsp"
+      name="manageuserForm"
+      path="/manageuser"
+      scope="request"
+      type="com.mp2srt.struts.action.ManageuserAction"
+      cancellable="true">
+      <forward
+        name="edituser"
+        path="/edituser.jsp"
+        redirect="true" />
+      <forward
+        name="remove"
+        path="/adminappjsa.jsp"
+        redirect="true" />
+      <forward
+        name="adduser"
+        path="/adduser.jsp"
+        redirect="true" />
+    </action>
+    
+    <action
+      attribute="usermanForm"
+      input="/adduser.jsp"
+      name="usermanForm"
+      path="/userman"
+      scope="request"
+      type="com.mp2srt.struts.action.UsermanAction"
+      cancellable="true">
+      <forward
+        name="doneedit"
+        path="/edituser.jsp"
+        redirect="true" />
+      <forward
+        name="doneadd"
+        path="/adduser.jsp"
+        redirect="true" />
+    </action>
+    <action
+      attribute="vocalmanForm"
+      input="/addvocab.jsp"
+      name="vocalmanForm"
+      path="/vocalman"
+      scope="request"
+      type="com.mp2srt.struts.action.VocalmanAction"
+      cancellable="true">
+      <forward
+        name="doneedit"
+        path="/editvocab.jsp"
+        redirect="true" />
+      <forward
+        name="doneadd"
+        path="/addvocab.jsp"
+        redirect="true" />
+    </action>
+    
     
     
     

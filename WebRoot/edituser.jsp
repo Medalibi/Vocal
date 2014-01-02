@@ -39,9 +39,9 @@
 					<ul>
 						
                         <li><a href="#">Home</a></li>
-						<li><a href="adminappjsa.jsp" class="active">Administrator</a></li>
+						<li><a href="adminappjsa.jsp">Administrator</a></li>
 						<li><a href="adduser.jsp">Add User</a></li>
-						<li><a href="editiser">Edit User</a></li>
+						<li><a href="editiser.jsp" class="active">Edit User</a></li>
 						<li><a href="#">About</a></li>
 					</ul>
 				</div>
@@ -58,46 +58,39 @@
 								    </li>
 							      </ul>
 								  <blockquote>
-							      <p></blockquote>
-							      <html:form action="manageuser" method="post">
+							      
+                                  <html:form method="get" action="userman">
+                                    <p><strong>Login:</strong>
+                                    <input type="text" id="login" name="login" value="<bean:write name="login" ignore="true" />" size="40" /></p>
+                                    <p><strong>Password:</strong>
+                                    <input type="password" id="password" name="password" value="<bean:write name="password" ignore="true" />" size="40" /></p>
+                                    <p><strong>Title:</strong>
+                                    <input type="text" id="title" name="title" value="<bean:write name="title" ignore="true" />" size="40" /></p>
+                                    <p><strong>Name:</strong>
+                                    <input type="text" id="name" name="name" value="<bean:write name="name" ignore="true" />" size="40" /></p>
+                                    <p><strong>Surname:</strong>
+                                    <input type="text" id="surname" name="surname" value="<bean:write name="surname" ignore="true" />" size="40" /></p>
+                                    <p><strong>Mail address:</strong>
+                                    <input type="text" id="address" name="address" value="<bean:write name="address" ignore="true" />" size="40" /></p>
+                                    <p><strong>Mail password:</strong>
+                                    <input type="password" id="mailpass" name="mailpass" value="<bean:write name="mailpass" ignore="true" />" size="40" /></p>
+                                    <p><strong>Rights:</strong>
+                                    <input type="text" id="right" name="right" value="<bean:write name="right" ignore="true" />" size="40" /></p>
+								    <p>
+									<input type="submit" id="man" name="man" value="Save User" />
+									</p>
+									<p><font color="green" size=2><bean:write name="info" ignore="true" /></font></p>
+                                   </html:form>
+                                  
+                                  </blockquote>
+							      
 							      
 							       <blockquote>
-								    <table border="1" align="left" cellpadding="2" cellspacing="2" class="active" style="border:1px solid black;border-collapse: collapse;">
-								      
-								      <col width="80px" />
-								      <col width="40px" />
-								      <col width="10px" />
-								      <col width="150px" />
-								      <col width="150px" />
-								      <col width="150px" />
-								      <col width="80px" />
-								      
-								      <tr>
-								      <th>Login</th>
-								      <th>Password</th>
-								      <th>Title</th>
-								      <th>Name</th>
-								      <th>Surname</th>
-								      <th>Rights</th>
-								      <th>Action</th>
-								      </tr>
-								      
-								      <logic:iterate name="listuser" id="listMsgId">
-								      <tr class="alternate-row" style="border:1px solid black;" >
-								        <td style="border:1px solid black;"><bean:write name="listMsgId" property="login" ignore="true"/></td> 
-								        <td style="border:1px solid black;"><bean:write name="listMsgId" property="password" ignore="true"/></td> 
-								        <td style="border:1px solid black;"><bean:write name="listMsgId" property="titre" ignore="true"/></td> 
-								        <td style="border:1px solid black;"><bean:write name="listMsgId" property="prenom" ignore="true"/></td> 
-								        <td style="border:1px solid black;"><bean:write name="listMsgId" property="nom" ignore="true"/></td> 
-								        <td style="border:1px solid black;"><bean:write name="listMsgId" property="privilege" ignore="true"/></td> 
-								        <td style="border:1px solid black;"><input type="submit" id="edit" name="edit" value="Add <bean:write name="listMsgId" property="login" ignore="true"/>"/> <input type="submit" id="edit" name="edit" value="Edit <bean:write name="listMsgId" property="login" ignore="true"/>"/> <input type="submit" id="edit" name="edit" value="Delete <bean:write name="listMsgId" property="login" ignore="true"/>"/></td>
-							          </tr> 
-							          </logic:iterate>
-							        </table>
-							        <p><font color="green" size=2><bean:write name="info" ignore="true" /></font></p>
+								    
+							        
 							      </blockquote>
 							      
-							      </html:form>
+							      
 								  
                               </div>
 							</div>

@@ -1,100 +1,218 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FlowViewLayout Version="1.2">
-  <StrutsActivity path="/signin.do" location="60,30" dimension="242,96" />
+  <StrutsActivity path="/signin.do" location="60,15" dimension="242,96" />
   <StrutsActivity path="/logout.do" location="480,120" dimension="80,66" />
-  <StrutsActivity path="/adminmailer.do" location="555,0" dimension="278,96" />
-  <StrutsActivity path="/reader.do" location="120,255" dimension="245,96" />
-  <StrutsActivity path="/superviser.jsp" location="315,180" dimension="106,51" />
-  <StrutsActivity path="/adminappjsa.jsp" location="165,180" dimension="121,51" />
-  <StrutsActivity path="/index.jsp" location="405,0" dimension="81,51" />
-  <StrutsActivity path="/usersend.jsp" location="30,180" dimension="100,51" />
-  <StrutsActivity path="/inscription.jsp" location="600,135" dimension="109,51" />
+  <StrutsActivity path="/adminmailer.do" location="570,15" dimension="278,96" />
+  <StrutsActivity path="/reader.do" location="105,255" dimension="245,96" />
+  <StrutsActivity path="/mailsender.do" location="480,240" dimension="267,96" />
+  <StrutsActivity path="/managevocab.do" location="345,375" dimension="284,96" />
+  <StrutsActivity path="/manageuser.do" location="60,375" dimension="274,96" />
+  <StrutsActivity path="/userman.do" location="480,510" dimension="256,96" />
+  <StrutsActivity path="/superviser.jsp" location="300,180" dimension="106,51" />
+  <StrutsActivity path="/adminappjsa.jsp" location="15,165" dimension="121,51" />
+  <StrutsActivity path="/index.jsp" location="405,15" dimension="81,51" />
+  <StrutsActivity path="/usersend.jsp" location="165,165" dimension="100,51" />
+  <StrutsActivity path="/inscription.jsp" location="585,165" dimension="109,51" />
   <StrutsActivity path="/usercompose.jsp" location="735,135" dimension="124,51" />
-  <StrutsActivity path="/mailsender.do" location="450,255" dimension="267,96" />
+  <StrutsActivity path="/addvocab.jsp" location="750,420" dimension="105,51" />
+  <StrutsActivity path="/editvocab.jsp" location="750,360" dimension="105,51" />
+  <StrutsActivity path="/edituser.jsp" location="90,510" dimension="95,51" />
+  <StrutsActivity path="/adduser.jsp" location="225,510" dimension="95,51" />
+  <StrutsActivity path="/vocalman.do" location="840,495" dimension="262,96" />
+  <StrutsTransition id="/usersend.jsp,null,/reader.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="245,216" />
+      <AbsolutePoint location="245,255" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/superviser.jsp,null,/managevocab.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="395,231" />
+      <AbsolutePoint location="395,375" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/manageuser.do,adduser,/adduser.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="272,471" />
+      <AbsolutePoint location="272,510" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/managevocab.do,editvocab,/editvocab.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="629,390" />
+      <AbsolutePoint location="750,390" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/adduser.jsp,null,/userman.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="302,510" />
+      <AbsolutePoint location="302,486" />
+      <AbsolutePoint location="608,486" />
+      <AbsolutePoint location="608,510" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/vocabman.do,doneedit,/editvocab.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1048,510" />
+      <AbsolutePoint location="1048,385" />
+      <AbsolutePoint location="855,385" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/inscription.jsp,null,/adminmailer.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="679,165" />
+      <AbsolutePoint location="679,111" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/vocabman.do,doneadd,/addvocab.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="885,558" />
+      <AbsolutePoint location="802,558" />
+      <AbsolutePoint location="802,471" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/usersend.jsp,null,/logout.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="245,165" />
+      <AbsolutePoint location="245,150" />
+      <AbsolutePoint location="480,150" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/signin.do,wrong,/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="302,21" />
+      <AbsolutePoint location="405,21" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/reader.do,go,/usersend.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="215,255" />
+      <AbsolutePoint location="215,216" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/manageuser.do,remove,/adminappjsa.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="75,375" />
+      <AbsolutePoint location="75,216" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/adminappjsa.jsp,null,/manageuser.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="45,216" />
+      <AbsolutePoint location="45,423" />
+      <AbsolutePoint location="60,423" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
   <StrutsTransition id="/mailsender.do,done,/usercompose.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="717,303" />
-      <AbsolutePoint location="797,303" />
+      <AbsolutePoint location="747,288" />
+      <AbsolutePoint location="797,288" />
       <AbsolutePoint location="797,186" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/usersend.jsp,null,/reader.do,2" routingType="0">
+  <StrutsTransition id="/vocalman.do,doneadd,/addvocab.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="130,205" />
-      <AbsolutePoint location="150,205" />
-      <AbsolutePoint location="150,255" />
+      <AbsolutePoint location="840,543" />
+      <AbsolutePoint location="802,543" />
+      <AbsolutePoint location="802,471" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/usercompose.jsp,null,/mailsender.do,2" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="827,186" />
-      <AbsolutePoint location="827,333" />
-      <AbsolutePoint location="717,333" />
+      <AbsolutePoint location="827,318" />
+      <AbsolutePoint location="747,318" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/vocalman.do,doneedit,/editvocab.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1001,495" />
+      <AbsolutePoint location="1001,385" />
+      <AbsolutePoint location="855,385" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/userman.do,doneadd,/adduser.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="480,535" />
+      <AbsolutePoint location="320,535" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/signin.do,user,/usersend.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="80,126" />
-      <AbsolutePoint location="80,180" />
+      <AbsolutePoint location="215,111" />
+      <AbsolutePoint location="215,165" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/managevocab.do,addvocab,/addvocab.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="629,445" />
+      <AbsolutePoint location="750,445" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/signin.do,admin,/adminappjsa.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="225,126" />
-      <AbsolutePoint location="225,180" />
+      <AbsolutePoint location="75,111" />
+      <AbsolutePoint location="75,165" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/adminmailer.do,go,/inscription.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="654,96" />
-      <AbsolutePoint location="654,135" />
+      <AbsolutePoint location="639,111" />
+      <AbsolutePoint location="639,165" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/manageuser.do,edituser,/edituser.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="137,471" />
+      <AbsolutePoint location="137,510" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/addvocab.jsp,null,/vocabman.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="855,445" />
+      <AbsolutePoint location="1018,445" />
+      <AbsolutePoint location="1018,510" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/index.jsp,null,/signin.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="405,15" />
-      <AbsolutePoint location="181,15" />
-      <AbsolutePoint location="181,30" />
+      <AbsolutePoint location="445,66" />
+      <AbsolutePoint location="445,81" />
+      <AbsolutePoint location="302,81" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/managevocab.do,remove,/superviser.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="365,375" />
+      <AbsolutePoint location="365,231" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/logout.do,logout,/index.jsp,1" routingType="0">
     <AutomaticBendpoints>
       <AbsolutePoint location="520,120" />
-      <AbsolutePoint location="520,25" />
-      <AbsolutePoint location="486,25" />
+      <AbsolutePoint location="520,40" />
+      <AbsolutePoint location="486,40" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/inscription.jsp,null,/adminmailer.do,2" routingType="0">
+  <StrutsTransition id="/addvocab.jsp,null,/vocalman.do,2" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="694,135" />
-      <AbsolutePoint location="694,96" />
+      <AbsolutePoint location="855,445" />
+      <AbsolutePoint location="971,445" />
+      <AbsolutePoint location="971,495" />
     </AutomaticBendpoints>
   </StrutsTransition>
-  <StrutsTransition id="/usersend.jsp,null,/logout.do,2" routingType="0">
+  <StrutsTransition id="/userman.do,doneedit,/edituser.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="110,180" />
-      <AbsolutePoint location="110,153" />
-      <AbsolutePoint location="480,153" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/signin.do,wrong,/index.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="302,45" />
-      <AbsolutePoint location="405,45" />
-    </AutomaticBendpoints>
-  </StrutsTransition>
-  <StrutsTransition id="/reader.do,go,/usersend.jsp,1" routingType="0">
-    <AutomaticBendpoints>
-      <AbsolutePoint location="120,303" />
-      <AbsolutePoint location="80,303" />
-      <AbsolutePoint location="80,231" />
+      <AbsolutePoint location="480,576" />
+      <AbsolutePoint location="137,576" />
+      <AbsolutePoint location="137,561" />
     </AutomaticBendpoints>
   </StrutsTransition>
   <StrutsTransition id="/signin.do,super,/superviser.jsp,1" routingType="0">
     <AutomaticBendpoints>
-      <AbsolutePoint location="302,78" />
-      <AbsolutePoint location="368,78" />
-      <AbsolutePoint location="368,180" />
+      <AbsolutePoint location="302,51" />
+      <AbsolutePoint location="353,51" />
+      <AbsolutePoint location="353,180" />
     </AutomaticBendpoints>
   </StrutsTransition>
 </FlowViewLayout>

@@ -48,7 +48,8 @@ public class Reader {
 	try{
         
   
-			tts.playSynth("Please, Speak now..."); 
+		Thread.sleep(2000);	
+		tts.playSynth("Please, Speak now..."); 
 			//data = null;
 			
 			Thread.sleep(50);
@@ -91,7 +92,7 @@ public class Reader {
         }
         else {
         	tts.playSynth("Didn't get that.");
-        	Thread.sleep(1000);
+        	
         }
         
         

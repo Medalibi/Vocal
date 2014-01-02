@@ -55,9 +55,6 @@ public class ReaderAction extends Action {
     	
     	text= "The subject is "+ mail.getSujet().trim()+ " and it contains " + mail.getContenu().trim();
     	text = text.replace("\n", "").replace("\r", "").replace("  ", " ").replace("\t","");
-    	//text = text.replaceAll("\n", " ");
-    	//text = text.replaceAll(",", " ");
-    	//text = text.replaceAll(".", " ");
     	text = text.trim();
     	System.out.println(text);
     	tts.playSynth(text);

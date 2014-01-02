@@ -39,9 +39,9 @@
 					<ul>
 						
                         <li><a href="#">Home</a></li>
-						<li><a href="superviser.jsp" class="active">Superviser</a></li>
+						<li><a href="superviser.jsp">Superviser</a></li>
 						<li><a href="addvocab.jsp">Add Vocabulary</a></li>
-						<li><a href="editvocab.jsp">Edit Vocabulary</a></li>
+						<li><a href="editvocab.jsp" class="active">Edit Vocabulary</a></li>
 						<li><a href="#">About</a></li>
 					</ul>
 				</div>
@@ -53,34 +53,26 @@
 								<p>&nbsp;</p>
 								<div class="entry">
 								  <ul>
-								    <li><strong>This is the list of all the user vocabulary</strong></li>
+								    <li><strong>Change the field and save</strong></li>
 							      </ul>
-								  <html:form action="managevocab" method="post">
+								  
 							      
 							       <blockquote>
-								    <table border="1" align="left" cellpadding="2" cellspacing="2" class="active" style="border:1px solid black;border-collapse: collapse;">
-								      
-								      <col width="400px" />
-								      <col width="40px" />
-								      <col width="40px" />
-								      <tr>
-								      
-								      <th>Vocabulary</th>
-								      <th>User</th>
-								      <th>Action</th>
-								      </tr>
-								      <logic:iterate name="listvocab" id="listMsgId">
-								      <tr class="alternate-row" style="border:1px solid black;" >
-								        
-								        <td style="border:1px solid black;"><strong><bean:write name="listMsgId" property="nomVocab" ignore="true"/></strong></td> 
-								        <td style="border:1px solid black;"><bean:write name="listMsgId" property="compte" ignore="true"/></td> 
-								        <td style="border:1px solid black;"><input type="submit" id="edit" name="edit" value="Add <bean:write name="listMsgId" property="idVocab" ignore="true"/>"/> <input type="submit" id="edit" name="edit" value="Edit <bean:write name="listMsgId" property="idVocab" ignore="true"/>"/> <input type="submit" id="edit" name="edit" value="Delete <bean:write name="listMsgId" property="idVocab" ignore="true"/>"/></td> 
-								      </tr> 
-								      </logic:iterate>
-							        </table>
-							        <p><font color="green" size=2><bean:write name="info" ignore="true" /> </font></p>
+								    <html:form method="get" action="vocalman">
+                                    <p><strong>User:</strong>
+                                    <input type="text" name="user" id="user" value="<bean:write name="user" ignore="true" />" size="60" /></p>
+								    <p><strong>Vocabulary:</strong></p>
+                                    <p>
+                                     <textarea name="vocab" cols="70" rows="8" id="vocab"><bean:write name="vocab" ignore="true"/> </textarea>
+								    </p>
+								    <input type="hidden" id="index" name="index" value="<bean:write name="index" ignore="true" />"/>
+                                    <p>
+									<input type="submit" id="man" name="man" value="Save Vocabulary" />
+									</p>
+									<p><font color="green" size=2><bean:write name="info" ignore="true" /></font></p>
+                                   </html:form>
 							      </blockquote>
-							      </html:form>
+							      
                               </div>
 							</div>
 							<div class="post">
@@ -108,7 +100,7 @@
 											<p>
 											  <input type="submit" id="logout" value="Logout" />
 											</p>
-												
+												<p><bean:write name="info" ignore="true" /></p>
 									</div>
 								    </html:form>
 									</div>

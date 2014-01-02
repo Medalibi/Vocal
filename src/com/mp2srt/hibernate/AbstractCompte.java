@@ -136,10 +136,9 @@ public abstract class AbstractCompte implements java.io.Serializable {
 	public void setEmails(Set emails) {
 		this.emails = emails;
 	}
-	
-	@Override
-    public String toString() {
-        return login;
-    }
+	public String toString(){
+		return login;
+		
+	}
 
 }

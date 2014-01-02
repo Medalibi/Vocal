@@ -50,18 +50,25 @@
 				<div id="content">
 				<div class="post">
 				<h2 class="title">Compose new e-mail</h2>
-				<p>&nbsp;</p>
+				<html:form action="mailsender" method="post" focus="read"><div> 
+				</div><p align="center">
+				<input type="hidden" id="login" name="login" value="<bean:write name="login" ignore="true"/>"/>
+				<input type="image" src="images/img05.png" alt="submit" width="100" height="100" autofocus>
+				
+				</p>
+				</html:form>
 				<div class="entry"> 
 					<blockquote>
                       <html:form action="mailsender" method="post" focus="email">
                        	<p><strong>To:</strong>
-					   	<input type="text" name="email" id="email" value="example@mail.com" size="60" /></p>
+					   	<input type="text" name="email" id="email" value="<bean:write name="email" ignore="true"/>" size="60" /></p>
                         <p><strong>Subject:</strong>
-                       	<input type="text" name="subject" id="subject" value="Subject" size="54" /></p>
+                       	<input type="text" name="subject" id="subject" value="<bean:write name="subject" ignore="true"/>" size="54" /></p>
 						<p><strong>Mail:</strong><br />
-						<textarea name="note" cols="61" rows="15" id="note" dir="ltr" lang="en"></textarea></p>
-                        <input type="hidden" id="login" value="<bean:write name="login" ignore="true"/>"/>
+						<textarea name="note" cols="61" rows="15" id="note"  dir="ltr" lang="en"> <bean:write name="note" ignore="true"/> </textarea></p>
+                        <input type="hidden" id="login" name="login" value="<bean:write name="login" ignore="true"/>"/>
                         <p><input type="submit" id="send" name="Send" value="Send Mail" /></p>
+                        <p><font color="green" size=2><bean:write name="valid" ignore="true"/> </font> </p>
                        </html:form>
 					</blockquote>
 

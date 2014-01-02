@@ -33,7 +33,7 @@
         </property>
         <set name="vocabulaires" inverse="true">
             <key>
-                <column name="user_fk" length="30" not-null="true" />
+                <column name="user_fk" length="30" />
             </key>
             <one-to-many class="com.mp2srt.hibernate.Vocabulaire" />
         </set>

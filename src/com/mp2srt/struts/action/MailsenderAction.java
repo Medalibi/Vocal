@@ -57,6 +57,8 @@ public class MailsenderAction extends Action {
 		String subject = mailsenderForm.getSubject();
 		String note = mailsenderForm.getNote();
 		
+		System.out.println(login);
+		
 		TextToSpeech tts = new TextToSpeech();
 		Logger log = Logger.getLogger(TextAction.class);
 		Mailer mailer = new Mailer();
@@ -70,12 +72,15 @@ public class MailsenderAction extends Action {
 				"if it's okay, thank you";
 		String mails= "";
 		
+		tts.playSynth(login);
+		
 		CompteDAO codao = new CompteDAO();
 		Compte comp = codao.findById(login);
 				
 		request.getSession().setAttribute("email", "example@mail.com");
 		request.getSession().setAttribute("subject", "Subject");
 		request.getSession().setAttribute("note", " ");
+		request.getSession().setAttribute("valid", " ");
 		
 		Reader read = new Reader();
 		
@@ -84,7 +89,7 @@ public class MailsenderAction extends Action {
 		if (!text.isEmpty()){
 			
 			tts.playSynth("Speak the mail address");
-			text = read.Listen("gmail, yahoo, hotmail, live, facebook, com, fr", stop, 8000);
+			text = read.Listen("gmail", stop, 8000);
 			email= text;
 			request.getSession().setAttribute("email", email);
 			
@@ -134,6 +139,7 @@ public class MailsenderAction extends Action {
 		
 		
 		mailer.MailSender(comp.getAdresseMail(), comp.getMailpassword(), comp.getAdresseMail(), email, subject, note);
+		request.getSession().setAttribute("valid", "Your mail has been sent");
 		log.info("User " + comp.getNom() + comp.getPrenom() + " with the login " + comp.getLogin() + " has just send a mail.");
 		tts.playSynth("Your mail has been sent");
 		

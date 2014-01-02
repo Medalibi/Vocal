@@ -45,7 +45,7 @@ public class LogoutAction extends Action {
 		Logger log = Logger.getLogger(TextAction.class);
 		TTSReader tts = new TTSReader();
 		
-		log.trace("User loged out.");
+		log.info("User loged out.");
 		tts.Spell("Good bye. We hope that you have enjoyed the use of our application.");
 		
 		return mapping.findForward("logout");

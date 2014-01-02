@@ -39,9 +39,9 @@
 					<ul>
 						
                         <li><a href="#">Home</a></li>
-						<li><a href="superviser.jsp" class="active">Superviser</a></li>
-						<li><a href="addvocab.jsp">Add Vocabulary</a></li>
-						<li><a href="editvocab.jsp">Edit Vocabulary</a></li>
+						<li><a href="adminappjsa.jsp">Administrator</a></li>
+						<li><a href="adduser.jsp" class="active">Add User</a></li>
+						<li><a href="editiser">Edit User</a></li>
 						<li><a href="#">About</a></li>
 					</ul>
 				</div>
@@ -49,44 +49,52 @@
 
 						<div id="content">
 							<div class="post">
-								<h2 class="title">Vocabulary list</h2>
+								<h2 class="title">Users Account</h2>
 								<p>&nbsp;</p>
 								<div class="entry">
 								  <ul>
-								    <li><strong>This is the list of all the user vocabulary</strong></li>
+								    <li>
+                                    <strong>This is the list of the application users</strong> 
+									</li>
 							      </ul>
-								  <html:form action="managevocab" method="post">
+								  <blockquote>
+                                  <html:form method="get" action="userman">
+                                    <p><strong>Login:</strong>
+                                    <input type="text" id="login" name="login" value="" size="40" /></p>
+                                    <p><strong>Password:</strong>
+                                    <input type="password" id="password" name="password" value="" size="40" /></p>
+                                    <p><strong>Title:</strong>
+                                    <input type="text" id="title" name="title" value="" size="40" /></p>
+                                    <p><strong>Name:</strong>
+                                    <input type="text" id="name" name="name" value="" size="40" /></p>
+                                    <p><strong>Surname:</strong>
+                                    <input type="text" id="surname" name="surname" value="" size="40" /></p>
+                                    <p><strong>Mail address:</strong>
+                                    <input type="text" id="address" name="address" value="" size="40" /></p>
+                                    <p><strong>Mail password:</strong>
+                                    <input type="password" id="mailpass" name="mailpass" value="" size="40" /></p>
+                                    <p><strong>Rights:</strong>
+                                    <input type="text" id="right" name="right" value="" size="10" />
+                                    1: User, 2: Admin, 3: Superuser</p>
+								    <p>
+									<input type="submit" id="man" name="man" value="Add User" />
+									</p>
+									<p><font color="green" size=2><bean:write name="info" ignore="true" /></font></p>
+                                   </html:form>
+                                  
+							      </blockquote>
+							      
 							      
 							       <blockquote>
-								    <table border="1" align="left" cellpadding="2" cellspacing="2" class="active" style="border:1px solid black;border-collapse: collapse;">
-								      
-								      <col width="400px" />
-								      <col width="40px" />
-								      <col width="40px" />
-								      <tr>
-								      
-								      <th>Vocabulary</th>
-								      <th>User</th>
-								      <th>Action</th>
-								      </tr>
-								      <logic:iterate name="listvocab" id="listMsgId">
-								      <tr class="alternate-row" style="border:1px solid black;" >
-								        
-								        <td style="border:1px solid black;"><strong><bean:write name="listMsgId" property="nomVocab" ignore="true"/></strong></td> 
-								        <td style="border:1px solid black;"><bean:write name="listMsgId" property="compte" ignore="true"/></td> 
-								        <td style="border:1px solid black;"><input type="submit" id="edit" name="edit" value="Add <bean:write name="listMsgId" property="idVocab" ignore="true"/>"/> <input type="submit" id="edit" name="edit" value="Edit <bean:write name="listMsgId" property="idVocab" ignore="true"/>"/> <input type="submit" id="edit" name="edit" value="Delete <bean:write name="listMsgId" property="idVocab" ignore="true"/>"/></td> 
-								      </tr> 
-								      </logic:iterate>
-							        </table>
-							        <p><font color="green" size=2><bean:write name="info" ignore="true" /> </font></p>
+								    
+							        
 							      </blockquote>
-							      </html:form>
+							      
+							      
+								  
                               </div>
 							</div>
-							<div class="post">
-							  <div class="entry"> </div>
-							</div>
-							<div style="clear: both;">&nbsp;</div>
+							
 						</div>
 						<!-- end #content -->
 						<div id="sidebar">
@@ -97,13 +105,14 @@
 							</div>
 							<ul>
 								<li>
-									<h2>Welcome Superviser</h2>
+									<h2>Welcome Administrator</h2>
 									<div id="login" >
-										<html:form action="logout" method="post">
+										
+									<html:form action="logout" method="post">
 									<div>
-											
-											<p><font color="white" size=3 > <b><bean:write name="name" ignore="true" /></b> </font><br />
-											
+											<p>From this page you manage the users account of this application.</p>
+											<p><font color="white" size=3 > <b>
+											<bean:write name="name" ignore="true" /></b> </font><br />
 											</p>
 											<p>
 											  <input type="submit" id="logout" value="Logout" />

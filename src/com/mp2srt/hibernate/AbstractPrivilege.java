@@ -58,10 +58,9 @@ public abstract class AbstractPrivilege implements java.io.Serializable {
 	public void setComptes(Set comptes) {
 		this.comptes = comptes;
 	}
-	
-	@Override
-    public String toString() {
-        return status;
-    }
+	public String toString(){
+		return status;
+		
+	}
 
 }

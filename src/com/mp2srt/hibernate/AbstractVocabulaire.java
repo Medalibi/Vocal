@@ -19,11 +19,6 @@ public abstract class AbstractVocabulaire implements java.io.Serializable {
 	public AbstractVocabulaire() {
 	}
 
-	/** minimal constructor */
-	public AbstractVocabulaire(Compte compte) {
-		this.compte = compte;
-	}
-
 	/** full constructor */
 	public AbstractVocabulaire(Compte compte, String nomVocab) {
 		this.compte = compte;
@@ -55,10 +50,9 @@ public abstract class AbstractVocabulaire implements java.io.Serializable {
 	public void setNomVocab(String nomVocab) {
 		this.nomVocab = nomVocab;
 	}
-	
-	@Override
-    public String toString() {
-        return nomVocab;
-    }
+	public String toString(){
+		return nomVocab;
+		
+	}
 
 }

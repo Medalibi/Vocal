@@ -11,10 +11,10 @@
             <generator class="identity" />
         </id>
         <many-to-one name="compte" class="com.mp2srt.hibernate.Compte" fetch="select">
-            <column name="user_fk" length="30" not-null="true" />
+            <column name="user_fk" length="30" />
         </many-to-one>
         <property name="nomVocab" type="java.lang.String">
-            <column name="nom_vocab" length="60" />
+            <column name="nom_vocab" length="800" />
         </property>
     </class>
 </hibernate-mapping>

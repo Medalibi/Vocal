@@ -12,11 +12,6 @@ public class Vocabulaire extends AbstractVocabulaire implements
 	public Vocabulaire() {
 	}
 
-	/** minimal constructor */
-	public Vocabulaire(Compte compte) {
-		super(compte);
-	}
-
 	/** full constructor */
 	public Vocabulaire(Compte compte, String nomVocab) {
 		super(compte, nomVocab);
