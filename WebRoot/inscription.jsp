@@ -61,7 +61,7 @@
 							      </ul>
 								  <blockquote>
                                   
-                                  <html:form method="get" action="mail2admin">
+                                  <html:form method="get" action="adminmailer">
                                     <p><strong>Full Name:</strong>
                                     <input name="name" type="text" id="name" value="Full Name" size="30" /></p>
 								    <p><strong>E-mail:</strong>
