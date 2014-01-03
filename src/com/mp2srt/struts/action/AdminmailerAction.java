@@ -13,6 +13,9 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+
+import com.mp2srt.beans.Mailer;
+import com.mp2srt.beans.TextToSpeech;
 import com.mp2srt.struts.form.AdminmailerForm;
 
 /** 
@@ -53,10 +56,7 @@ public class AdminmailerAction extends Action {
 		
 		String username= "projectmpsrt@gmail.com";
 		String password= "MYpassis0000";
-		//String mailfrom= email;
-		//String mailto= "projectmpsrt@gmail.com";
 		String subject= "From " + name + " of " + organisation + " with the condution of " + condution;
-		//String text= "note";
 		
 		mail.MailSender(username, password, email, username, subject, note);
 		tts.playSynth("The administrator will respond to your request.");

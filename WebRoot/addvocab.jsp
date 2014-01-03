@@ -61,13 +61,8 @@
                                     <p><strong>User:</strong>
                                     <input type="text" name="user" id="user" value="" size="60" /></p>
 								    <p><strong>Vocabulary:</strong></p>
-                                    <p>
-                                     <textarea name="vocab" cols="70" rows="8" id="vocab"></textarea>
-								    </p>
-								    
-                                    <p>
-									<input type="submit" id="man" name="man" value="Add Vocabulary" />
-									</p>
+                                    <p><textarea name="vocab" cols="70" rows="8" id="vocab"></textarea></p>
+                                     <p><input type="submit" id="man" name="man" value="Add Vocabulary" /></p>
 									<p><font color="green" size=2><bean:write name="info" ignore="true" /></font></p>
                                    </html:form>
 							      </blockquote>

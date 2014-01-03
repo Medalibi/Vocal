@@ -1,4 +1,4 @@
-package com.mp2srt.struts.action;
+package com.mp2srt.beans;
 
 import java.util.Properties;
 
@@ -38,11 +38,11 @@ public class Mailer {
 			try {
 	 
 				Message message = new MimeMessage(session);
-				message.setFrom(new InternetAddress(mailfrom));   //"projectmpsrt@gmail.com"
+				message.setFrom(new InternetAddress(mailfrom));   
 				message.setRecipients(Message.RecipientType.TO,
-					InternetAddress.parse(mailto));               //"alibimohamed@gmail.com"
-				message.setSubject(subject);                      //"Weekly meeting H3ABioNet"
-				message.setText(text);						  //"Message"
+					InternetAddress.parse(mailto));               
+				message.setSubject(subject);                      
+				message.setText(text);						  
 	 
 				Transport.send(message);
 	 

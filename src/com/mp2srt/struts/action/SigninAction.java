@@ -18,6 +18,8 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 
+import com.mp2srt.beans.Reader;
+import com.mp2srt.beans.TextToSpeech;
 import com.mp2srt.hibernate.Compte;
 import com.mp2srt.hibernate.CompteDAO;
 import com.mp2srt.hibernate.Email;
@@ -98,17 +100,13 @@ public class SigninAction extends Action {
 				for (long i = 1; i<=listmail.size(); i++)
 				{
 					mail = maidao.findById(i);
-					//mail.getCompte().toString()
 					if (mail.getCompte().toString().equals(comp.toString()))
 					{
 						listmailuser.add(mail);
 					}
 				}
 				request.getSession().setAttribute("listmail", listmailuser);
-				 
-			    
-					
-			}
+				}
 			else if (comp.getPrivilege().getStatus().equals("admin"))
 			{
 				log.info("The Adminisrator " + login + " has connected.");

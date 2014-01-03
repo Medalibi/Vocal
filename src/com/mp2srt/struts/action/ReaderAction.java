@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import com.mp2srt.beans.TextToSpeech;
 import com.mp2srt.hibernate.Email;
 import com.mp2srt.hibernate.EmailDAO;
 import com.mp2srt.struts.form.ReaderForm;

@@ -20,6 +20,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 
+import com.mp2srt.beans.Mailer;
+import com.mp2srt.beans.Reader;
+import com.mp2srt.beans.TextToSpeech;
 import com.mp2srt.hibernate.Compte;
 import com.mp2srt.hibernate.CompteDAO;
 import com.mp2srt.hibernate.Email;
@@ -70,7 +73,7 @@ public class MailsenderAction extends Action {
 				" no command to tell.";
 		String valid="Yes, it's okay, edit the field, change the field," +
 				"if it's okay, thank you";
-		String mails= "";
+		//String mails= "";
 		
 		tts.playSynth(login);
 		
@@ -86,7 +89,7 @@ public class MailsenderAction extends Action {
 		
 		tts.playSynth("Hello, if you like to edit the field say Edit");
 		String text = read.Listen(valid, stop, 5000);
-		if (!text.isEmpty()){
+		if (!text.equals("wrong")){
 			
 			tts.playSynth("Speak the mail address");
 			text = read.Listen("gmail", stop, 8000);
@@ -100,7 +103,7 @@ public class MailsenderAction extends Action {
 			
 			tts.playSynth("Speak the email content");
 			
-			while (!text.isEmpty()){
+			while (!text.equals("wrong")){
 				text = read.Listen(" ", stop, 30000);
 				note+=text;
 				tts.playSynth("Are you finished");
@@ -118,11 +121,6 @@ public class MailsenderAction extends Action {
 			
 		}
 		
-		
-		
-		//EmailDAO maidao = new EmailDAO();
-		
-				
 		Email mail = new Email();
 		
 		mail.setSujet(subject);
@@ -139,6 +137,7 @@ public class MailsenderAction extends Action {
 		
 		
 		mailer.MailSender(comp.getAdresseMail(), comp.getMailpassword(), comp.getAdresseMail(), email, subject, note);
+		
 		request.getSession().setAttribute("valid", "Your mail has been sent");
 		log.info("User " + comp.getNom() + comp.getPrenom() + " with the login " + comp.getLogin() + " has just send a mail.");
 		tts.playSynth("Your mail has been sent");
